@@ -19,14 +19,15 @@ An [OpenClaw](https://openclaw.ai) skill that collects posts from your X (Twitte
 
 ## Installation
 
-Clone this repository and symlink `SKILL.md` into your OpenClaw skills directory:
+Clone this repository and run the sync script to deploy `SKILL.md`:
 
 ```sh
 git clone https://github.com/<your-user>/x-timeline-reporter.git
-mkdir -p ~/.openclaw/workspace/skills/x-timeline-reporter
-ln -s "$(pwd)/x-timeline-reporter/SKILL.md" \
-  ~/.openclaw/workspace/skills/x-timeline-reporter/SKILL.md
+cd x-timeline-reporter
+./sync-skill.sh
 ```
+
+After editing `SKILL.md`, run `./sync-skill.sh` again to deploy the changes. Use `./sync-skill.sh status` to check for differences without copying.
 
 OpenClaw will automatically pick up the skill from the skills directory.
 

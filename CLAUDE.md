@@ -8,18 +8,20 @@ This is an OpenClaw skill that collects posts from a user's X (Twitter) timeline
 
 ## Repository Structure
 
-- `SKILL.md` — The OpenClaw skill definition (frontmatter + workflow instructions). This is the core artifact of this project. It is symlinked from `~/.openclaw/workspace/skills/x-timeline-reporter/SKILL.md` so OpenClaw can discover it.
+- `SKILL.md` — The OpenClaw skill definition (frontmatter + workflow instructions). This is the core artifact of this project.
+- `sync-skill.sh` — Copies `SKILL.md` to the OpenClaw skills directory for deployment.
 - `README.md` — Project documentation and installation guide.
 
 ## Deployment
 
-The skill is deployed by symlinking `SKILL.md` into the OpenClaw skills directory:
+OpenClaw rejects symlinks in the skills directory (see [openclaw/openclaw@c275932](https://github.com/openclaw/openclaw/commit/c275932aa4230fb7a8212fe1b9d2a18424874b3f)). The skill is deployed by copying `SKILL.md` via the sync script:
 
 ```
-~/.openclaw/workspace/skills/x-timeline-reporter/SKILL.md -> <repo>/SKILL.md
+./sync-skill.sh          # Copy SKILL.md to ~/.openclaw/workspace/skills/
+./sync-skill.sh status   # Check for differences without copying
 ```
 
-Changes to `SKILL.md` in this repo take effect immediately in OpenClaw via the symlink.
+Run `./sync-skill.sh` after editing `SKILL.md` to deploy changes.
 
 ## Editing SKILL.md
 
