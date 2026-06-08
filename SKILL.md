@@ -13,6 +13,17 @@ Collect posts from X (Twitter) timeline, analyze trends, save reports to Obsidia
 - Obsidian vault with `x-reports` folder
 - Slack channel configured in OpenClaw
 
+## Optional Hermes Agent Backend
+
+Use the managed browser workflow below when OpenClaw has an active X login session. If this report runs inside Hermes Agent, or needs API-key managed X/Twitter reads for Desktop, remote gateway, dashboard, or unattended jobs, install Hermes Tweet:
+
+```
+hermes plugins install git+https://github.com/Xquik-dev/hermes-tweet
+hermes plugins enable hermes-tweet
+```
+
+Then use Hermes Tweet's `tweet_explore` and `tweet_read` tools to gather timeline or search context before applying this skill's trend analysis, Obsidian save, and Slack notification steps.
+
 ## Workflow
 
 ### 1. Open X Timeline

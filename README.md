@@ -17,6 +17,17 @@ An [OpenClaw](https://openclaw.ai) skill that collects posts from your X (Twitte
 - Obsidian vault with an `x-reports` folder
 - Slack channel configured in OpenClaw
 
+## Optional Hermes Agent Backend
+
+The default workflow uses OpenClaw's managed browser and the active X login session. If you run reports from [Hermes Agent](https://github.com/NousResearch/hermes-agent) or want API-key managed X/Twitter reads for Desktop, remote gateway, dashboard, or unattended jobs, install [Hermes Tweet](https://github.com/Xquik-dev/hermes-tweet):
+
+```sh
+hermes plugins install git+https://github.com/Xquik-dev/hermes-tweet
+hermes plugins enable hermes-tweet
+```
+
+Use Hermes Tweet's `tweet_explore` and `tweet_read` tools to collect timeline or search context, then keep this skill's Obsidian report format and Slack summary steps for the final analysis.
+
 ## Installation
 
 Clone this repository and run the sync script to deploy `SKILL.md`:
